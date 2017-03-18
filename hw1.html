@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+
+<head>
+</head>
+
+<body>
+  <div id='light0'>light 0</div>
+  <p id='msg0'></p>
+  <button id='toggle0'>toggle 0</button>
+  <div id='light1'>light 1</div>
+  <p id='msg1'></p>
+  <button id='toggle1'>toggle 1</button>
+  <script>
+    function Light(name) {
+
+
+      var status = true;
+
+      this.toggle = function () {
+
+
+        if (status === true) {
+          $('#light' + name).css('backgroundColor', 'green');
+          $('#msg' + name).text(name + ' is on ');
+
+          if (status === true)
+            status = false;
+
+
+
+        }
+        else {
+          $('#light' + name).css('backgroundColor', 'red');
+          $('#msg' + name).text(name + ' is off ');
+
+          if (status === false)
+            status = true;
+        }
+
+      }
+      this.check = function () {
+        return status;
+      }
+    }
+
+
+    var l0 = new Light('0');
+    var l1 = new Light('1');
+    l0.toggle();
+    l0.toggle();
+    l1.toggle();
+    l1.toggle();
+
+    $('#toggle0').click(function () {
+      l0.toggle();
+    });
+
+    $('#toggle1').click(function () {
+      l1.toggle();
+    });
+  </script>>
+</body>
+
+</html>
